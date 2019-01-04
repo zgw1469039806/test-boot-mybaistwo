@@ -1,0 +1,18 @@
+server:
+  port: 7071
+spring:
+  redis:
+    host: 129.204.113.113
+    port: 6379
+    database: 0
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: rootroot
+    url: jdbc:mysql://127.0.0.1:3306/easybuy?characterEncoding=utf-8&useSSL=false
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+logging:
+  level:
+    com.gd.dao.mapper: DEBUG

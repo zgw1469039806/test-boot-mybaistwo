@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/test.css"/>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/function.js"></script>
+    <script type="text/javascript" src="scripts/vuex.js"></script>
+    <script type="text/javascript" src="scripts/axios.js"></script>
+</head>
+<body>
+
+<div id="header" class="wrap">
+    <div id="logo"><img src="images/logo.gif"/></div>
+    <div class="help"><a href="index.html">返回前台页面</a></div>
+    <div class="navbar">
+        <ul class="clearfix">
+            <li><a href="indexs.jsp">首页</a></li>
+            <li><a href="user.html">用户</a></li>
+            <li><a href="product.jsp">商品</a></li>
+            <li><a href="order.html">订单</a></li>
+            <li><a href="guestbooks.html">留言</a></li>
+            <li class="current"><a href="news.jsp">新闻</a></li>
+        </ul>
+    </div>
+</div>
+<div id="childNav">
+    <div class="welcome wrap">
+        管理员pillys您好，今天是2012-12-21，欢迎回到管理后台。
+    </div>
+</div>
+<div id="position" class="wrap">
+    您现在的位置：<a href="indexs.jsp">易买网</a> &gt; 管理后台
+</div>
+<div id="main" class="wrap">
+    <div id="menu-mng" class="lefter">
+        <div class="box">
+            <dl>
+                <dt>用户管理</dt>
+                <dd><a href="user.html">用户管理</a></dd>
+                <dt>商品信息</dt>
+                <dd><em><a href="productClass-add.jsp">新增</a></em><a href="productClass.jsp">分类管理</a></dd>
+                <dd><em><a href="product-add.jsp">新增</a></em><a href="product.jsp">商品管理</a></dd>
+                <dt>订单管理</dt>
+                <dd><a href="order.html">订单管理</a></dd>
+                <dt>留言管理</dt>
+                <dd><a href="guestbooks.html">留言管理</a></dd>
+                <dt>新闻管理</dt>
+                <dd><em><a href="news-add.html">新增</a></em><a href="news.jsp">新闻管理</a></dd>
+            </dl>
+        </div>
+    </div>
+    <div class="main">
+        <h2>新闻管理</h2>
+        <div class="manage">
+            <table class="list" id="tit">
+                <tr>
+                    <th>ID</th>
+                    <th>新闻标题</th>
+                    <th>操作</th>
+                </tr>
+
+                <tr v-for="ne in res">
+                    <td class="first w4 c">{{ne.id}}</td>
+                    <td>{{ne.title}}</td>
+                    <td class="w1 c"><a href="">修改</a> <a class="manageDel"
+                                                                          href="javascript:void(0)">删除</a></td>
+
+                </tr>
+            </table>
+            <div><h4>总页数:<span id="conut"></span></h4>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        axios.get("/selAll").then(function (response) {
+         _li.res=response.data;
+        });
+
+
+        var _li = new Vue({
+            el: "#tit",
+            data: {
+                res: null
+            }
+
+
+        })
+    </script>
+    <div class="clear"></div>
+    <div class="pager">
+        <ul class="clearfix">
+            <li><a>首页</a></li>
+            <li>...</li>
+            <li><a>4</a></li>
+            <li class="current">5</li>
+            <li><a>6</a></li>
+            <li>...</li>
+            <li><a>尾页</a></li>
+        </ul>
+    </div>
+</div>
+<div id="footer">
+    Copyright &copy; 2013 北大青鸟 All Rights Reserved. 京ICP证1000001号
+</div>
+
+</body>
+</html>

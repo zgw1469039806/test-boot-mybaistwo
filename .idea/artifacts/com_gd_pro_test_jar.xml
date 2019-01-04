@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="com.gd.pro-test:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/com_gd_pro_test_jar</output-path>
+    <root id="root">
+      <element id="archive" name="com.gd.pro-test.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
