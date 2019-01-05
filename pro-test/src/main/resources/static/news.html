@@ -64,8 +64,7 @@
                 <tr v-for="ne in res">
                     <td class="first w4 c">{{ne.id}}</td>
                     <td>{{ne.title}}</td>
-                    <td class="w1 c"><a href="">修改</a> <a class="manageDel"
-                                                                          href="javascript:void(0)">删除</a></td>
+                    <td class="w1 c"><a href="">修改</a> <a class="manageDel">删除</a></td>
 
                 </tr>
             </table>
@@ -76,7 +75,7 @@
     </div>
     <script type="text/javascript">
         axios.get("/selAll").then(function (response) {
-         _li.res=response.data;
+            _li.res = response.data;
         });
 
 
@@ -85,8 +84,6 @@
             data: {
                 res: null
             }
-
-
         })
     </script>
     <div class="clear"></div>
