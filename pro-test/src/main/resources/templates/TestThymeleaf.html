@@ -1,0 +1,29 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:ul="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link href="css">
+    <style type="text/css">
+        .odd {
+            color: #105f4b;
+        }
+
+        .even {
+            color: #fc7e31;
+        }
+    </style>
+</head>
+<body>
+<ul th:each="list,iterStat : ${newsList}">
+    <li th:class="${iterStat.odd? 'odd':'even'}"
+        th:text="${list.title +':顺序--'+iterStat.index+'---是否为偶数：'+iterStat.odd}"></li>
+
+</ul>
+这是一个thymeleaf模板----------------
+
+<!--<ul th:each="news,iterStat : ${@easybuyNewsMapper.selectAll()}">-->
+<!--<li th:text="${news.title}"></li>-->
+<!---->
+<!--</ul>-->
+</body>
+</html>

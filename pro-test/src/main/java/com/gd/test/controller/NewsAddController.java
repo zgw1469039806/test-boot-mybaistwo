@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,21 +45,23 @@ public class NewsAddController {
 
     }
 
-    @ResponseBody
+
     @RequestMapping(value = "/selAll", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有新闻信息", notes = "所有信息")
-    public List<EasybuyNews> selAll() {
-
-        return easybuyNewsService.selectAll();
+    public String selAll(Model model) {
+        List<EasybuyNews> newsList = easybuyNewsService.selectAll();
+        model.addAttribute("newsList", newsList);
+        return "TestThymeleaf";
     }
+
     @GetMapping("/del")
     @ApiOperation(value = "根据id删除")
-    public String del(@RequestParam Integer id){
-        int delete=easybuyNewsService.deleteByPrimaryKey(id);
-        if (delete>0){
+    public String del(@RequestParam Integer id) {
+        int delete = easybuyNewsService.deleteByPrimaryKey(id);
+        if (delete > 0) {
             return "redirect:news.html";
         }
-            return "删除失败";
+        return "删除失败";
 
     }
 
